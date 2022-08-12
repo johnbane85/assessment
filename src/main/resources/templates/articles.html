@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles Page</title>
+  </head>
+  <body>
+    <h1>Saved Crtpto Article</h1>
+    <form action="/articles" method="POST">
+      <br />
+      <br />
+
+      <div data-th-each="n: ${news}">
+        <img
+          data-th-src="@{${n.imageurl}}"
+          alt="News picture"
+          width="120"
+          height="120"
+          style="float: left"
+        />
+        <table border="1">
+          <tr>
+            <td>Id: <span data-th-text="${n.id}"></span></td>
+          </tr>
+          <tr>
+            <td>
+              <strong data-th-text="${n.title}"></strong>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span data-th-text="${n.body}"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>Categories: <span data-th-text="${n.categories}"></span></td>
+          </tr>
+          <tr>
+            <td>Tags: <span data-th-text="${n.tags}"></span></td>
+          </tr>
+          <tr>
+            <td>Published: <span data-th-text="${n.published_on}"></span></td>
+
+            <td>
+              <a data-th-text="${n.url}" th:href="@{${n.url}}">Link</a>
+            </td>
+          </tr>
+        </table>
+        <br /><br />
+      </div>
+    </form>
+  </body>
+</html>
